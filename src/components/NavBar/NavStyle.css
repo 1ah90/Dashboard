@@ -1,0 +1,98 @@
+:root {
+  --blackColor: #000000;
+  --whiteColor: #ffffff;
+  --fontColor: #8690a0;
+  --radios: 12px;
+  --gapFlex : 16px;
+}
+
+nav {
+  /* background-color: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 0px;
+  width: 100%;
+  z-index: 1000;
+  color: var(--fontColor);
+
+}
+
+/* links and logo*/
+.flex {
+  display: flex;
+  align-items: center;
+}
+.linksContainer{
+  gap: var(--gapFlex);
+}
+.links {
+  gap: var(--gapFlex);
+}
+.links li a {
+  padding: 14px;
+  border-radius: var(--radios);
+  background-color: var(--whiteColor);
+}
+.links li.active a {
+  background-color: var(--blackColor);
+}
+a {
+  color: var(--fontColor);
+  display: inline-block;
+}
+.active a {
+  color: var(--whiteColor);
+}
+.links .logo img {
+  width: 45px;
+}
+
+/* search container */
+.profile{
+  gap: calc(var(--gapFlex)-4px);
+}
+.searchContainer {
+  position: relative;
+}
+/* search icon  */
+.searchContainer svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+/* search input  */
+.searchContainer input {
+  padding: 15px 15px 15px 35px;
+  font-size: 14px;
+  outline: none;
+  border-radius: var(--radios);
+}
+
+input::placeholder {
+  color: var(--fontColor);
+}
+
+/* profile Container */
+.profileContainer {
+  gap: var(--gapFlex);
+  background-color: var(--whiteColor);
+  border-radius: var(--radios);
+}
+
+@media (max-width: 768px) {
+  nav{
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  
+  .links li a {
+    padding: 10px 2px;
+    font-size: 10px;
+  }
+}
