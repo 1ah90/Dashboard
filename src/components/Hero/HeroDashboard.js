@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ArrowIcon from '../icons/ArrowIcon';
 import './HeroStyle.css';
+import TrachIcon from '../icons/TrashIcon';
 // info to creat table body row
 const data = [
   {
@@ -43,7 +44,7 @@ function DashboardTable() {
   }
 
   return (
-    <div>
+    <div style={{ overflow: 'auto' }}>
       <table className="dashboard-table">
         {/* head row  */}
         <thead>
@@ -83,14 +84,14 @@ function DashboardTable() {
                   className={
                     item.status === 'CONFIGURED'
                       ? 'status configured'
-                      : 'status not-configured'
+                      : 'status notConfigured'
                   }
                 >
                   {item.status}
                 </span>
               </td>
               <td>
-                <button onClick={toggleMenu} className="options-button">
+                <button onClick={toggleMenu} className="optionsButton">
                   ⋮
                 </button>
               </td>
@@ -98,7 +99,9 @@ function DashboardTable() {
                 <div className="menuDropdown">
                   <p> Historical Data</p>
                   <p>Custom Dashboard</p>
-                  <p className="delete">Delete</p>
+                  <p style={{ display:'flex', gap: '20px',alignItems:'center', cursor:"pointer" }} className="delete">
+                    Delete <TrachIcon size="15px" />
+                  </p>
                 </div>
               )}
             </tr>

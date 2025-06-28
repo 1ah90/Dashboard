@@ -73,7 +73,8 @@ p {
   position: absolute;
   padding: 10px 20px 10px 0;
   border-radius: 12px;
-  z-index: 1000;
+  z-index: 5000;
+  background-color: var(--whiteColor);
   box-shadow: 0 5px 10px #00000055;
   right: 10%;
   top: 30%;
@@ -126,16 +127,17 @@ p {
   border: 1px solid var(--primary);
 }
 
-.not-configured {
+.notConfigured {
   background-color: var(--whiteColor);
   color: var(--fontColor);
   border: 1px solid var(--fontColor);
 }
 
-.options-button {
+.optionsButton {
   border: none;
   cursor: pointer;
   font-size: 18px;
+  background-color: transparent;
 }
 
 @media (max-width: 768px) {

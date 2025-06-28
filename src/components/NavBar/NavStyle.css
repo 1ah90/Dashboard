@@ -44,6 +44,7 @@ a {
 }
 .active a {
   color: var(--whiteColor);
+  position: relative;
 }
 .links .logo img {
   width: 45px;
@@ -77,6 +78,10 @@ input::placeholder {
 }
 
 /* profile Container */
+.containerWithDropdown{
+  position: relative;
+  cursor: pointer;
+}
 .profileContainer {
   gap: var(--gapFlex);
   background-color: var(--whiteColor);

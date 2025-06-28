@@ -1,0 +1,47 @@
+:root {
+  --blackColor: #000000;
+  --whiteColor: #ffffff;
+  --fontColor: #8690a0;
+  --purple: #844be0;
+  --primary: #00986e;
+  --secondery200: #abb3be;
+  --radios: 12px;
+  --gapFlex: 16px;
+  --boxShodow: 0 16px 32px -12px #585c5f61;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 2000;
+  width: 200px;
+  background-color: var(--whiteColor);
+  border-radius: var(--radios);
+  padding: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  border: 0.5px solid var(--fontColor);
+  box-shadow: var(--boxShodow);
+}
+.dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* profile dropdown style  */
+.profleDropdown {
+  text-align: center;
+  top: 50px;
+  /* right: 500px; */
+  left: -50px;
+}
+/* link dropdown style  */
+.linkDropdown {
+  text-align: left;
+  left: 150px;
+  width: 200px;
+  top: 70px;
+}
+
+.linkDropdown li:last-of-type{
+  color: red;
+}
