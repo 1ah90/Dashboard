@@ -1,6 +1,7 @@
-function ArrowIcon({ size = 24, color = '#8690A0' }) {
+function ArrowIcon({  size = 24, color = '#8690A0' }) {
   return (
     <svg
+    
       width={size}
       height="20"
       viewBox="0 0 20 20"

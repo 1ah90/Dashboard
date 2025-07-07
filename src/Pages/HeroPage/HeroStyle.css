@@ -1,0 +1,40 @@
+
+/* .dashboard-table start here */
+.dashboard-table th,
+.dashboard-table td {
+  padding: 12px 26px;
+  text-align: left;
+}
+
+/*  border bottom row  */
+.dashboard-table tr:not(:last-child) td {
+  border-bottom: 1px solid var(--secondery200);
+}
+.dashboard-table th {
+  background-color: #d9d9d995;
+  color: var(--fontColor);
+  font-weight: 500;
+  
+}
+/* background the font not the table  */
+
+/* status in configured and not configured */
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.configured {
+  background-color: var(--whiteColor);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.notConfigured {
+  background-color: var(--whiteColor);
+  color: var(--fontColor);
+  border: 1px solid var(--fontColor);
+}
+
+

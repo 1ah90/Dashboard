@@ -1,123 +1,83 @@
-import './NavStyle.css';
-import Search from './SearchInput';
 import ArrowIcon from '../icons/ArrowIcon';
-import TrachIcon from '../icons/TrashIcon';
-import MenuDropdown from '../Dropdown/DropdownItems';
 import { useState } from 'react';
+import LogoWithLinks from './LogoWithLinks';
+import Profile from './Profile';
+import Search from './SearchInput';
 
-//link data
 const linksArray = [
   {
     key: 1,
     href: '#',
     name: 'Social Monitoring',
-    className: 'flex',
     active: 'active',
-    menu: (
-      // link options
-      <MenuDropdown
-        name={[
-          { item: 'option-1' },
-          { item: 'option-2' },
-          {
-            item: (
-              <div style={{display:'flex' , alignItems:'center', gap:'20px'}}>
-                option-3 <TrachIcon />
-              </div>
-            ),
-          },
-        ]}
-      />
-    ),
+    dropdown: [
+      { key: 1, monitor: 'option1' },
+      { key: 2, monitor: 'option2' },
+      { key: 3, monitor: 'option3' },
+    ],
   },
   {
     key: 2,
     href: '#',
     name: 'Social',
-    className: 'flex',
     active: '',
+    dropdown: [
+      { key: 1, monitor: 'facebook' },
+      { key: 2, monitor: 'instagram' },
+      { key: 3, monitor: 'youtube' },
+    ],
   },
   {
     key: 3,
     href: '#',
     name: 'Social Monitoring',
-    className: 'flex',
     active: '',
+    dropdown: [
+      { key: 1, monitor: 'item1' },
+      { key: 2, monitor: 'item2' },
+      { key: 3, monitor: 'item3' },
+    ],
   },
 ];
 
 function NavBar() {
-  // social monitoring dropdown
-  const [linkDropdown, setlinkDropdown] = useState(false);
-  // profile click dropdown
-  const [linkProfile, setLinkProfile] = useState(false);
+  const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
+  const links = linksArray.map((link, i) => (
+    <li
+      key={link.key}
+      className={`rounded-xl bg-white text-gray relative ${
+        link.active ? 'text-purple-dark' : ''
+      }`}
+      onClick={() =>
+        setOpenDropdownIndex((navLinksDropdown) => (navLinksDropdown === i ? null : i))
+      }
+    >
+      <a href={link.href} className="flex items-center p-3 hover:text-black">
+        {link.name}
+        <ArrowIcon />
+      </a>
 
-  // loop to create links section
-  const links = linksArray.map((link) => {
-    return (
-      <li
-        key={link.key}
-        className={link.active || ''}
-        // event to check if dropdown open or not
-        onClick={() => {
-          if (link.active == 'active') {
-            setlinkDropdown((linkDropdown) => !linkDropdown);
-          }
-        }}
-      >
-        <a href={link.href} className={link.className}>
-          {link.name}
-
-          <ArrowIcon />
-        </a>
-        {linkDropdown ? link.menu : null}
-      </li>
-    );
-  });
+      {openDropdownIndex === i && (
+        <ul className="absolute mt-2 bg-white rounded-xl w-52 z-50 shadow-custom">
+          {link.dropdown.map((item) => (
+            <li
+              className="cursor-pointer hover:text-black py-2 px-4"
+              key={item.key}
+            >
+              {item.monitor}
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
+  ));
 
   return (
-    <nav>
-      <div className="links flex">
-        {/* logo  */}
-        <div className="logo">
-          <img alt="logo" src="image.png" />
-        </div>
-        {/* links  */}
-        <ul className="linksContainer flex">{links}</ul>
-      </div>
-
-      <div className="profile flex">
-        {/* search input  */}
+    <nav className="flex justify-between flex-wrap py-4 w-full z-50 items-stretch h-13">
+      <LogoWithLinks listLinks={links} />
+      <div className="profile flex gap-3 items-stretch">
         <Search />
-        {/* profile data  */}
-        <div
-          className="containerWithDropdown"
-          // event to check if dropdown open or not
-          onClick={() => {
-            setLinkProfile((linkProfile) => !linkProfile);
-          }}
-        >
-          <div className="profileContainer flex">
-            <img
-              alt="profileLogo"
-              src="image copy.png"
-              style={{ width: '35px' }}
-            />
-            <h5>Ahmad</h5>
-            <ArrowIcon />
-          </div>
-          <ul className="profleDropdown">
-            {linkProfile ? (
-              <MenuDropdown
-                profileOptions={[
-                  { option: 'Home' },
-                  { option: 'Profile' },
-                  {option: 'Sitting',},
-                ]}
-              />
-            ) : null}
-          </ul>
-        </div>
+        <Profile />
       </div>
     </nav>
   );

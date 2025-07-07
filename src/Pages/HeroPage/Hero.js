@@ -1,11 +1,10 @@
-import './HeroStyle.css';
 import HeroNav from './HeroNav';
-import HeroDashboard from './HeroDashboard'
+import HeroDashboard from './HeroDashboard';
 function Hero() {
   return (
-    <div className="hero">
+    <div className="bg-white my-2 p-5 rounded-xl">
       <HeroNav />
-      <HeroDashboard/>
+      <HeroDashboard />
     </div>
   );
 }

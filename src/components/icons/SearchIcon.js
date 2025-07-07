@@ -1,6 +1,7 @@
-function SearchIcon({ size = 22, color = '#8690A0'}) {
+function SearchIcon({ className, size = 22, color = '#8690A0'}) {
   return (
     <svg
+    className={className}
       width={size}
       height={size}
       viewBox="0 0 24 24"

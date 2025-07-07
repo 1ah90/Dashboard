@@ -1,4 +1,4 @@
-function TrachIcon({size = '22px' , color = 'red'}) {
+function TrachIcon({size = '18px' , color = 'red'}) {
   return (
     <svg
       width= {size}

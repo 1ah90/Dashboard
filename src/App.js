@@ -1,20 +1,16 @@
 import './App.css';
-import Hero from './components/Hero/Hero';
-import Nav from './components/NavBar/Nav'
-;
-
-const containerStyle = {
-  width: '90%',
-  margin: 'auto',
-  backgroundColor: '#F8FAFB',
-};
+import Hero from './Pages/HeroPage/Hero';
+import Nav from './components/NavBar/Nav';
+import { Route, Routes } from 'react-router-dom';
+import Monitor from './Pages/MonitorPage/Monitor';
 function App() {
   return (
-    <div className="App">
-      <div className="container" style={containerStyle}>
-        <Nav />
-        <Hero />
-      </div>
+    <div className="App font-sans">
+      <Nav />
+      <Routes>
+        <Route path="/Hero" element={<Hero />} />
+        <Route path="/Monitor" element={<Monitor />} />
+      </Routes>
     </div>
   );
 }
